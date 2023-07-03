@@ -72,17 +72,18 @@ h2 {
 }
 
 img {
-  width: 120px;
+  width: 100px;
 }
 
 #result {
   padding: 1rem;
+  font-size: 25px;
 }
 
 .round {
   font-size: 30px;
   font-family: "Roboto", sans-serif;
-  padding: 15px;
+  padding: 10px;
 }
 
 #restart {
@@ -102,6 +103,7 @@ img {
 
 #gameResult {
   font-family: "Roboto", sans-serif;
+  font-size: 30px;
 }
 
 .selection-design {
