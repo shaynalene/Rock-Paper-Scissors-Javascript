@@ -64,14 +64,16 @@ function getPlayerChoice(string) {
     resultDisplay.textContent = playRound(playerSelection, computerSelection);
     playerScoreDisplay.textContent = playerScore;
     computerScoreDisplay.textContent = computerScore;
+
     if (numRounds == 5) {
       gameResult.textContent = game();
     }
-    round.textContent = `Round ${numRounds}/5`;
+    round.textContent = `ROUND ${numRounds} / 5`;
   }
   numRounds++;
 }
 
+//IF GAME ENDS
 function game() {
   if (playerScore > computerScore) {
     playerScore = 0;
@@ -87,6 +89,8 @@ function game() {
     return "You tied against the computer! Try again?";
   }
 }
+
+//START OR RESTART GAME
 restartGame.addEventListener("click", function () {
   const nodeList = document.querySelectorAll("#playerSelection");
   for (i = 0; i < nodeList.length; i++) {
@@ -99,5 +103,7 @@ restartGame.addEventListener("click", function () {
   gameResult.textContent = "";
   playerScoreDisplay.textContent = "0";
   computerScoreDisplay.textContent = "0";
-  round.textContent = `Round ${numRounds}/5`;
+  resultDisplay.textContent = "";
+  restartGame.textContent = "RESTART";
+  round.textContent = `ROUND ${numRounds} / 5`;
 });
