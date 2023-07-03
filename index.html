@@ -4,26 +4,49 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock-Paper-Scissors</title>
-    <script src="script.js"></script>
+
     <style src="style.css"></style>
   </head>
   <body>
     <div class="header">ROCK-PAPER-SCISSORS</div>
     <div class="main">
-      <div id="round"></div>
-      <div class="player-container">
-        <p class="player-title">PLAYER</p>
-        <p class="player-score" id="player-score"></p>
+      <p id="gameResult"></p>
+      <div class="round"></div>
+      <div>
+        <div class="player-container">
+          <p class="player-title">PLAYER</p>
+          <p class="player-score" id="playerScore">0</p>
+        </div>
+        <div>VS</div>
+        <div class="computer-container">
+          <p class="computer-title">COMPUTER</p>
+          <p class="computer-score" id="computerScore">0</p>
+        </div>
       </div>
-      <div class="computer-container">
-        <p class="computer-title">COMPUTER</p>
-        <p class="computer-score" id="computer-score"></p>
-      </div>
+      <button id="restart">START</button>
       <h2>Choose your weapon!</h2>
-      <div class="selection" id="playerSelection">
-        <div class="selection-design" id="rock"><img src /></div>
-        <div class="selection-design" id="paper"><img src /></div>
-        <div class="selection-design" id="scissors"><img src /></div>
+      <div class="selection">
+        <button
+          class="selection-design"
+          id="playerSelection"
+          onclick="getPlayerChoice('ROCK');"
+        >
+          <img src />
+        </button>
+        <button
+          class="selection-design"
+          id="playerSelection"
+          onclick="getPlayerChoice('PAPER');"
+        >
+          <img src />
+        </button>
+        <button
+          class="selection-design"
+          id="playerSelection"
+          onclick="getPlayerChoice('SCISSORS');"
+        >
+          <img src />
+        </button>
       </div>
       <div id="result"></div>
     </div>
@@ -32,4 +55,5 @@
       <div class="footer-content">Copyright © 2023</div>
     </div>
   </body>
+  <script src="script.js"></script>
 </html>
