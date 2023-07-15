@@ -8,52 +8,10 @@
     <link rel="shortcut icon" type="image/jpg" href="./img/rock.png" />
   </head>
   <body>
-    <div class="header">ROCK - PAPER - SCISSORS</div>
-    <div class="main">
-      <div class="round">ROUND 1 / 5</div>
-      <div class="score-display">
-        <div class="player-container">
-          <p class="player-title">PLAYER</p>
-          <p class="score" id="playerScore">0</p>
-        </div>
-
-        <div class="computer-container">
-          <p class="computer-title">COMPUTER</p>
-          <p class="score" id="computerScore">0</p>
-        </div>
-      </div>
-      <button id="restart">START</button>
-      <h2>Choose your weapon!</h2>
-      <div class="selection">
-        <button
-          class="selection-design"
-          id="playerSelection"
-          onclick="getPlayerChoice('ROCK');"
-        >
-          <img src="./img/rock.png" />
-        </button>
-        <button
-          class="selection-design"
-          id="playerSelection"
-          onclick="getPlayerChoice('PAPER');"
-        >
-          <img src="./img/paper.png" />
-        </button>
-        <button
-          class="selection-design"
-          id="playerSelection"
-          onclick="getPlayerChoice('SCISSORS');"
-        >
-          <img src="./img/scissors.png" />
-        </button>
-      </div>
-      <div id="result"></div>
-      <p id="gameResult"></p>
-    </div>
-    <div class="footer">
-      <div class="footer-content">Made by <b>shaynalene</b></div>
-      <div class="footer-content">Copyright © 2023</div>
-    </div>
+    <button id="weapon" class="Rock">Rock</button>
+    <button id="weapon" class="Paper">Paper</button>
+    <button id="weapon" class="Scissors">Scissors</button>
+    <div class="result"></div>
   </body>
   <script src="script.js"></script>
 </html>
