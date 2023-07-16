@@ -14,10 +14,53 @@ function getComputerChoice() {
 
 let playerScore = 0;
 let computerScore = 0;
+let resdisp = document.querySelector(".result");
+let playerdisp = document.querySelector(".player");
+let compdisp = document.querySelector(".computer");
+let playerdispscore = document.querySelector(".playerscore");
+let compdispscore = document.querySelector(".compscore");
+
+const weapons = document.querySelectorAll("#weapon");
+weapons.forEach((weapon) => (weapon.disabled = true));
+
+const startbtn = document.querySelector(".start");
+startbtn.addEventListener("click", function () {
+  weapons.forEach((weapon) => (weapon.disabled = false));
+});
+
+// WEAPON BUTTONS ENABLED
+weapons.forEach((weapon) =>
+  weapon.addEventListener("click", function () {
+    let computerSelection = getComputerChoice();
+    const res = playRound(weapon.className.toUpperCase(), computerSelection);
+    displayStatus(res, weapon, computerSelection);
+  })
+);
+
+function displayStatus(result, weapon, computerSelection) {
+  playerdisp.textContent = "Player played " + weapon.className.toUpperCase();
+  compdisp.textContent = "Computer played " + computerSelection;
+  playerdispscore.textContent = playerScore;
+  compdispscore.textContent = computerScore;
+  resdisp.textContent = result;
+
+  // DISPLAY WINNER IF ONE REACHES 5 POINTS
+  if (playerScore >= 5 || computerScore >= 5) {
+    weapons.forEach((weapon) => (weapon.disabled = true));
+    const gameres = document.querySelector(".gameresult");
+    if (playerScore > computerScore) {
+      gameres.textContent = "Congratulations! You won the game!";
+    } else if (playerScore < computerScore) {
+      gameres.textContent =
+        "You lost against our computer! Props to you though.";
+    }
+  }
+}
 
 function playRound(playerSelection, computerSelection) {
   console.log(playerSelection);
   console.log(computerSelection);
+
   //Player wins
   if (
     (playerSelection == "ROCK" && computerSelection == "SCISSORS") ||
@@ -43,39 +86,3 @@ function playRound(playerSelection, computerSelection) {
     return `Invalid input! Try again!`;
   }
 }
-
-/*
-function game() {
-  let numRounds = 0;
-  while (numRounds < 5) {
-    let playerSelection = prompt("Your Turn: ").toUpperCase();
-    let computerSelection = getComputerChoice();
-    console.log(playRound(playerSelection, computerSelection));
-    numRounds++;
-    console.log("Round " + numRounds);
-    console.log("Player " + playerScore);
-    console.log("Computer " + computerScore);
-  }
-  if (playerScore > computerScore) {
-    return "Congratulations! You won the game!";
-  } else if (playerScore < computerScore) {
-    return "You lost against our computer! Props to you though.";
-  } else {
-    return "You tied against the computer! Try again?";
-  }
-}
-*/
-
-const weapons = document.querySelectorAll("#weapon");
-weapons.forEach((weapon) =>
-  weapon.addEventListener("click", function () {
-    let computerSelection = getComputerChoice();
-    const res = playRound(weapon.className.toUpperCase(), computerSelection);
-    console.log(res);
-  })
-);
-
-console.log(e);
-
-//console.log(weapons);
-//console.log(game());
