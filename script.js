@@ -14,14 +14,17 @@ function getComputerChoice() {
 
 let playerScore = 0;
 let computerScore = 0;
+let roundNum = 1;
 let resdisp = document.querySelector(".result");
 let playerdisp = document.querySelector(".player");
 let compdisp = document.querySelector(".computer");
-let playerdispscore = document.querySelector(".playerscore");
-let compdispscore = document.querySelector(".compscore");
+let dispscore = document.querySelector("#score");
+let green = document.querySelector("#green");
+let red = document.querySelector("#red");
+let round = document.querySelector(".round");
 
 const weapons = document.querySelectorAll("#weapon");
-weapons.forEach((weapon) => (weapon.disabled = true));
+weapons.forEach((weapon) => (weapon.disabled = true)); //weapons are first disabled
 
 const startbtn = document.querySelector(".start");
 startbtn.addEventListener("click", function () {
@@ -38,10 +41,16 @@ weapons.forEach((weapon) =>
 );
 
 function displayStatus(result, weapon, computerSelection) {
+  round.textContent = "ROUND " + roundNum++;
   playerdisp.textContent = "Player played " + weapon.className.toUpperCase();
   compdisp.textContent = "Computer played " + computerSelection;
-  playerdispscore.textContent = playerScore;
-  compdispscore.textContent = computerScore;
+  green.textContent = playerScore;
+  green.style.color = "green";
+  red.textContent = computerScore;
+  red.style.color = "red";
+
+  //playerScore.textContent.style.color = "green";
+  //dispscore.textContent = ` ${(playerScore)} + " : " + ${(computerScore)}`;
   resdisp.textContent = result;
 
   // DISPLAY WINNER IF ONE REACHES 5 POINTS
@@ -49,8 +58,10 @@ function displayStatus(result, weapon, computerSelection) {
     weapons.forEach((weapon) => (weapon.disabled = true));
     const gameres = document.querySelector(".gameresult");
     if (playerScore > computerScore) {
+      gameres.style.color = "green";
       gameres.textContent = "Congratulations! You won the game!";
     } else if (playerScore < computerScore) {
+      gameres.style.color = "red";
       gameres.textContent =
         "You lost against our computer! Props to you though.";
     }
